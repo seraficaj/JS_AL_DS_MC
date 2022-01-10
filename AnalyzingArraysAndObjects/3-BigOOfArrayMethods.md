@@ -1,0 +1,13 @@
+# Big O of Array Operations
+- push - O(1)
+- pop - O(1)
+- these methods re-index all elements in the array:
+    - shift - O(n)
+    - unshift - O(n)
+    - concat - O(n)
+    - slice - O(n)
+    - splice - O(n)
+- sort - O(n * log(n))
+    - see notes on sorting algorithms for more details
+- forEach/map/filter/reduce/etc. - O(n)
+    - these methods go through each item in the array
