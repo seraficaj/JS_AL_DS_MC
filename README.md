@@ -4,3 +4,4 @@ JavaScript Algorithms and Data Structures Masterclass coursework. Course by Colt
 ## Topics (In Order):
 - Big O Notation
 - Analyzing Arrays, Objects, and Built-In Methods
+- Problem Solving Approach
