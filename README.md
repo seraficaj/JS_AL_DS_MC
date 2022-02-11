@@ -5,4 +5,5 @@ JavaScript Algorithms and Data Structures Masterclass coursework. Course by Colt
 - Big O Notation
 - Analyzing Arrays, Objects, and Built-In Methods
 - Problem Solving Approach
-- Intro to Problem Solving Patterns
+- Problem Solving Patterns
+- Optional Coding Challenges
