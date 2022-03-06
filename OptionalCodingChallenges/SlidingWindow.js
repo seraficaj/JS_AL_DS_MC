@@ -25,32 +25,23 @@ maxSubarraySum([2, 3], 3); // null
 // Note that a subarray must consist of consecutive elements from the original array. In the first example below, [100, 200, 300] is a subarray of the original, but [100, 300] is not.
 
 function minSubArrayLen(arr, num) {
-    let total = 0;
-    let start = 0;
-    let end = 0;
-    let minLen = Infinity;
+   let result = Infinity;
+   // set up window
+   let left = 0;
+   let sum = 0;
 
-    while (start < nums.length) {
-        // if current window doesn't add up to the given sum then
-        // move the window to right
-        if (total < sum && end < nums.length) {
-            total += nums[end];
-            end++;
-        }
-        // if current window adds up to at least the sum given then
-        // we can shrink the window
-        else if (total >= sum) {
-            minLen = Math.min(minLen, end - start);
-            total -= nums[start];
-            start++;
-        }
-        // current total less than required total but we reach the end, need this or else we'll be in an infinite loop
-        else {
-            break;
-        }
-    }
-
-    return minLen === Infinity ? 0 : minLen;
+   for (let i =0 ; i <arr.length; i++) {
+       sum += arr[i];
+       while (sum >= num) {
+           // compare between current length 
+           result = Math.min(result, i - left + 1);
+           sum -= arr[left++];
+       }
+   }
+   if (result === Infinity) {
+       return 0
+   };
+   return result;
 }
 
 minSubArrayLen([2, 3, 1, 2, 4, 3], 7); // 2 because [4,3] is the smallest subarray
