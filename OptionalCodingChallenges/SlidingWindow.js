@@ -55,17 +55,21 @@ Write a function called findLongestSubstring which accepts a str and returns len
 
 const findLongestSubstring = (str) => {
     let start = 0;
+    // hash of all characters in string
     let chars = {};
+    // current length of longest substring
     let longest = 0;
 
     for (let i=0; i < str.length; i++) {
         let char = str[i];
         if (chars[char]) {
+            //if character is already known, find out location of next instance
             start = Math.max(start, chars[char]);
         }
-
+        // set string to longest length with index i minus start of substring plus one (to account for index)
         longest = Math.max(longest, i - start + 1);
         chars[char] = i + 1;
+        // store value of char in object
     }
     return longest;
 }
