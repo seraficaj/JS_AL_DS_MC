@@ -25,40 +25,55 @@ maxSubarraySum([2, 3], 3); // null
 // Note that a subarray must consist of consecutive elements from the original array. In the first example below, [100, 200, 300] is a subarray of the original, but [100, 300] is not.
 
 function minSubArrayLen(arr, num) {
-    let start = 0;
-    let pointer = 0;
+    // largest possible array size
+    let result = Infinity;
+    // set up window
+    let left = 0;
     let sum = 0;
-    let minLength = Infinity;
-    while (start < arr.length) {
-        if (sum < num) {
-            sum += arr[pointer];
-            pointer++;
-        } else if (sum >= num) {
-            minLength = Math.min(minLength, pointer - start);
-            sum -= arr[pointer];
-            pointer++;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+        while (sum >= num) {
+            // compare between current length and window
+            result = Math.min(result, i - left + 1);
+            sum -= arr[left];
+            left++;
         }
     }
+    if (result === Infinity) {
+        return 0;
+    }
+    return result;
 }
 
 minSubArrayLen([2, 3, 1, 2, 4, 3], 7); // 2 because [4,3] is the smallest subarray
 minSubArrayLen([3, 1, 7, 11, 2, 9, 8, 21, 62, 33, 19], 52); // 1 because [62] is greater than 52
 
-// 3. Find Longest Substring. 
+/*
+Write a function called findLongestSubstring which accepts a str and returns length of the longest substr with all distinct characters.
+*/
 
-function findLongestSubString(str) {
-    let longest = 0;
-    let seen = {};
+const findLongestSubstring = (str) => {
     let start = 0;
-    for (let i = 0; i < str.length; i++) {
+    // hash of all characters in string
+    let chars = {};
+    // current length of longest substring
+    let longest = 0;
+
+    for (let i=0; i < str.length; i++) {
         let char = str[i];
-        if (seen[char]) {
-            start = Math.max(start,seen[char])
+        if (chars[char]) {
+            //if character is already known, find out location of next instance
+            start = Math.max(start, chars[char]);
         }
-        // index - start of substring + 1 (to include current char in count)
+        // set string to longest length with index i minus start of substring plus one (to account for index)
         longest = Math.max(longest, i - start + 1);
-        // store the index of the next char to avoid double count
-        seen[char] = i + 1
+        chars[char] = i + 1;
+        // store value of char in object
     }
     return longest;
 }
+
+findLongestSubstring('') //0
+findLongestSubstring('rithmschool') //7
+findLongestSubstring('thisisawesome') //6
