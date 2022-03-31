@@ -24,3 +24,4 @@ collectOddValues([1,2,3,4,5])
 Pure Recursion Tips
 - array methods like slice, spread operator, and .concat make copies of arrays that don't mutate the original array
 - strings are immutable. use .slice, substr, substring to make copies of strings
+- to make copies of objects, use Object.assign or spread operator
