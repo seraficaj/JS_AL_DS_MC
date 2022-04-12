@@ -30,7 +30,7 @@ function reverse(str){
   //4. Write a recursive function called flatten which accepts an array of arrays and returns a new array with all values flattened.
 
   function flatten(arr) {
-    const result = [];
+    let result = [];
     for (var i = 0; i < arr.length; i++) {
       if (Array.isArray(arr[i])) {
         result = result.concat(flatten(arr[i]));
