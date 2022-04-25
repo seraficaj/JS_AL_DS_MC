@@ -24,3 +24,8 @@ const linearSearch  = (arr, val) => {
     return -1;
 } 
 ```
+
+## Big O
+- Best Case: O(1)
+- Avg Case: O(n)
+- Worst Case: O(n)

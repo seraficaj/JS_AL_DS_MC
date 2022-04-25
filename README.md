@@ -8,3 +8,4 @@ JavaScript Algorithms and Data Structures Masterclass coursework. Course by Colt
 - Problem Solving Patterns
 - Optional Coding Challenges
 - Recursion
+- Searching Algorithms
