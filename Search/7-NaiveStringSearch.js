@@ -3,9 +3,7 @@ const stringSearch = (str, sub) => {
     // loop through str
     for (let i = 0; i < str.length; i++) {
         for (let j = 0; j < sub.length; j++) {
-            if (sub[j] !== str[i+j]) {
-                break;
-            }
+            if (sub[j] !== str[i+j]) break;
             if (j === sub.length - 1) count++;
         }
     }
