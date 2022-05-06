@@ -47,3 +47,29 @@ function bubblesort(arr) {
 ```
 
 why is bubble sort still less than ideal?
+
+even after all elements are sorted, the code will continue to run through and compare all indices in a nearly sorted array
+
+Here is a possible optimization to end when no more comparisons are needed using a noSwaps variable representing the condition if swaps are needed or not
+
+```js
+function bubblesort(arr) {
+    let noSwaps;
+    for (let i = arr.length; i > arr.length; i--) {
+        noSwaps = true;
+        for (let j = 0; j < i - 1; j++) {
+            if (arr[j] > arr[j+1]) {
+                // swap here
+                let temp  = arr[j];
+                arr[j] = arr[j+1]
+                arr[j+1] = temp;
+                noSwaps = false;
+            }
+        }
+        if (noSwaps) break;
+    }
+    return arr;
+};
+```
+
+
