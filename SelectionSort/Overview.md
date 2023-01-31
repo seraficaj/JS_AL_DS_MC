@@ -36,3 +36,11 @@ function selectionSort(arr) {
 }
 selectionSort([34, 22, 10, 19, 17]);
 ```
+
+## Big O Complexity
+
+- Worst Case: O(n^2)
+  - has to compare all elements to all other elements
+- Selection Sort is better than Bubble Sort if you want to minimize the number of swaps
+  - there is only one swap at the end of the loop
+  - otherwise it's not very good
