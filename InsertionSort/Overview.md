@@ -11,3 +11,13 @@
     - iterate through sorted portion
     - place elem in correct place
   - repeat until array is sorted
+
+
+## Time Complexity:
+
+- worst case scenario: 
+  - O(n^2) because all elements have to be compared to each other
+- best case scenario:
+  - O(n)
+- Insertion Sort is also an "online algorithm"
+  - the array can have different sizes as the algorithm takes in different amounts of data ay any time
