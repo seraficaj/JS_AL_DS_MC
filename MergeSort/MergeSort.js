@@ -40,8 +40,38 @@ Merge Sort
         - once we exhaust one arrau, push in all remaning values from other array
 */
 
-function mergeSort(){
-    
+// implementation
+function mergeSort(arr1, arr2) {
+    let results = [];
+
+    // represent index positions in both input arrays
+    let i = 0;
+    let j = 0;
+
+    // while loop to compare and merge input arrays
+    while (i < arr1.length && j < arr2.length) {
+        if (arr2[j] > arr1[i]) {
+            results, push(arr1[i]);
+            i++;
+        } else {
+            results.push(arr2[j]);
+            j++;
+        }
+    }
+
+    // add remaining values from arr1 or arr2 if one of the input arrays gets completely exhausted
+
+    while (i < arr1.length) {
+        results.push(arr1[i]);
+        i++;
+    }
+
+    while (j < arr1.length) {
+        results.push(arr1[j]);
+        j++;
+    }
+
+    return results;
 }
 
-mergeSort([1,10,50],[2.14.99,100])
+mergeSort([1, 10, 50], [2, 14, 99, 100]);
