@@ -40,8 +40,8 @@ Merge Sort
         - once we exhaust one arrau, push in all remaning values from other array
 */
 
-// implementation
-function mergeSort(arr1, arr2) {
+// implementation of merging the arrays (sorting wil lcome next)
+function mergeArrays(arr1, arr2) {
     let results = [];
 
     // represent index positions in both input arrays
@@ -51,14 +51,13 @@ function mergeSort(arr1, arr2) {
     // while loop to compare and merge input arrays
     while (i < arr1.length && j < arr2.length) {
         if (arr2[j] > arr1[i]) {
-            results, push(arr1[i]);
+            results.push(arr1[i]);
             i++;
         } else {
             results.push(arr2[j]);
             j++;
         }
     }
-
     // add remaining values from arr1 or arr2 if one of the input arrays gets completely exhausted
 
     while (i < arr1.length) {
@@ -66,12 +65,45 @@ function mergeSort(arr1, arr2) {
         i++;
     }
 
-    while (j < arr1.length) {
-        results.push(arr1[j]);
+    while (j < arr2.length) {
+        results.push(arr2[j]);
         j++;
     }
 
     return results;
 }
 
-mergeSort([1, 10, 50], [2, 14, 99, 100]);
+mergeArrays([1, 10, 50], [2, 14, 99, 100]);
+
+// What about the sorting part?
+
+/*
+most merge sort implementations make use of recursion (calling the function inside itself until a break condition is met)
+
+Merge Sort Pseudocode:
+- break up the array into halves until you have arrays that are empty or have 1 element
+    - this can accomplished with the .slice() method
+    - recursively call mergeSort to continue to break the halves into more halves until all the arrays have 1 or 0 elements 
+- once we have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array 
+- once the array has been merged back together, return the merged and sorted array
+*/
+
+// IMPLEMENTATION
+function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+    let midPt = Math.floor(arr.length / 2);
+    let leftSide = mergeSort(arr.slice(0, midPt));
+    // leaving off the second input in .slice extends the slice to the end of array
+    let rightSide = mergeSort(arr.slice(midPt));
+    // notice how the actual sorting happens inside the mergeArrays function
+    return mergeArrays(leftSide, rightSide);
+}
+
+const randomNums = [
+    Math.floor(Math.random() * 500),
+    Math.floor(Math.random() * 500),
+    Math.floor(Math.random() * 500),
+    Math.floor(Math.random() * 500),
+];
+console.log(randomNums);
+console.log(mergeSort(randomNums));
