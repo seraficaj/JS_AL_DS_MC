@@ -107,3 +107,15 @@ const randomNums = [
 ];
 console.log(randomNums);
 console.log(mergeSort(randomNums));
+
+/*
+Big O Complexities of Merge Sort
+
+Time Complexity:
+Best: O(n log n)
+Avg: O(n log n)
+Worst O(n log n)
+
+Space Complexity: 
+O(n)
+*/
