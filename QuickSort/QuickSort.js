@@ -45,24 +45,50 @@ Pivot Pseudocode
 
 /* Pivot Helper Implementation */
 function pivot(arr, start = 0, end = arr.length + 1) {
-  // swap helper function
-  function swap(array, i, j) {
-      let temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-  }
+    // swap helper function
+    function swap(array, i, j) {
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 
-  let pivotPt = arr[start];
-  let swapIdx = start;
-
-  for (let i = start + 1; i < arr.length; i++) {
-      if (pivotPt > arr[i]) {
-          swapIdx++;
-          swap(arr, swapIdx, i);
-      }
+    /*
+  ES2015 Swap Function
+  const swap(array,i,j) => {
+    [array[i],array[j]] = [array[j],array[i]]
   }
-  swap(arr, start, swapIdx)
-  return swapIdx;
+  */
+
+    let pivotPt = arr[start];
+    let swapIdx = start;
+
+    for (let i = start + 1; i < arr.length; i++) {
+        if (pivotPt > arr[i]) {
+            swapIdx++;
+            swap(arr, swapIdx, i);
+        }
+    }
+    swap(arr, start, swapIdx);
+    return swapIdx;
 }
 
-/* Merge Sort Implementation */
+/* 
+Quick Sort Pseudocode 
+- call the pivot helper on the array
+- when the helper returns the updated pivot idx,
+  - recursively call the pivot helper on the subarray on the left and right sides of that idx
+- no new new arrays are made, this happens in place
+- your base case occurs when you consider a subarray with less than 2 elems
+*/
+
+/* Quick Sort Implementation */
+function quickSort(arr, left = 0, right = arr.length - 1) {
+    if (left < right) {
+        let pivotIdx = pivot(arr, left, right);
+        // left
+        quickSort(arr, left, pivotIdx - 1);
+        // right
+        quickSort(arr, pivotIdx + 1, right);
+    }
+    return arr;
+}
