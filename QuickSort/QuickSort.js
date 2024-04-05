@@ -28,4 +28,17 @@ Picking which point should be a pivot
 
 /*
 Pivot Pseudocode
+
+- accept 3 args:
+  - array
+  - start idx (default value = 0)
+  - end idx (default value = arr.length - 1)
+- grab the pivot from start of array
+- store current pivot idx in a var (keep track of where pivot should end up)
+- loop thru array from start to end
+  - if (pivot > current elem) 
+    - increment the pivot idx var 
+    - swap the current elem with elem at pivot idx
+  - swap the starting elem (i.e the pivot) with the pivot idx
+- return the pivot idx
 */
