@@ -92,3 +92,22 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
     }
     return arr;
 }
+
+/*
+Quick Sort Complexity:
+
+Time Complexity:
+Best: O (n log n)
+  - more elements -> more slicing in half to make subarrays
+  - each level means o(n) comparisons per decompositions
+Avg: O (n log n)
+Worst: O (n^2)
+  - if the 1st item is the initial pivot:
+    - the array may be sorted already
+    - if the initial pivot is the smallest or largest, O (n ^ 2) elements will happen
+    - the worst case can never be avoided because there's always a chance the max/min value of being the initial pivot
+
+Space Complexity:
+O (log n)
+
+*/
