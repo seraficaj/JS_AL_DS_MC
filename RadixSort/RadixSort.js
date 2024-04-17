@@ -62,3 +62,17 @@ function radixSort() {
 }
 
 console.log(radixSort([23, 345, 5467, 12, 2356, 9852]));
+
+
+/*
+Big O of Radix Sort
+There are debates on the best case efficiency of Radix Sort (see wikipedia) because the avg. number of digits (rep'd by k) can vary
+Time complexity
+Best: O(nk)
+Avg: O(nk)
+Worst: O(nk)
+
+Space Complexity
+O(n+k)
+
+*/
